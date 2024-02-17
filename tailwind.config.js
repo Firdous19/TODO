@@ -7,6 +7,9 @@ export default {
         customBackground: "hsl(235, 24%, 19%)",
         bodyColor: "hsl(235, 21%, 11%)",
       },
+      screens: {
+        custom: { max: "520px" },
+      },
     },
   },
   plugins: [],
