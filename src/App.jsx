@@ -1,12 +1,14 @@
 import Heading from "./components/Heading";
 import Create from "./components/Create";
 import { useState } from "react";
+import Footer from "./components/Footer";
+import Todos from "./components/Todos";
 
 function App() {
   const [headerImage, setHeaderImage] = useState({
     buttonImage: "/images/icon-sun.svg",
     inputColor: "hsl(235, 24%, 19%)",
-    inputTextColor:"white",
+    inputTextColor: "white",
     color: "hsl(235, 21%, 11%)",
     image: "/images/bg-desktop-dark.jpg",
     toggle: false,
@@ -14,15 +16,30 @@ function App() {
 
   return (
     <>
-      <div style={{ backgroundColor: headerImage.color }} className="h-screen">
-        <img
-          className="w-full absolute top-0 left-0"
-          src={headerImage.image}
-          alt="images"
-        />
-        <div className="absolute top-[20%] left-2/4 transform -translate-x-2/4 -translate-y-3/4 border-red border-3 w-[520px]">
+      <div style={{ backgroundColor: headerImage.color }} className="h-screen overflow-hidden">
+        <div
+          style={{
+            background: `url(${headerImage.image}) no-repeat center/cover`,
+            backgroundSize: "cover",
+            width: "100vw",
+            height: "40vh",
+          }}
+        ></div>
+        {/* <img className="w-full" src={headerImage.image} alt="images" /> */}
+        <div className="sm:w-[520px] w-[90%]" style={{ margin: "-200px auto" }}>
           <Heading headerImage={headerImage} setHeaderImage={setHeaderImage} />
-          <Create inputColor={headerImage.inputColor} inputTextColor={headerImage.inputTextColor} />
+          <Create
+            inputColor={headerImage.inputColor}
+            inputTextColor={headerImage.inputTextColor}
+          />
+          {/* <Todos
+            inputColor={headerImage.inputColor}
+            inputTextColor={headerImage.inputTextColor}
+          /> */}
+          <Footer
+            inputColor={headerImage.inputColor}
+            inputTextColor={headerImage.inputTextColor}
+          />
         </div>
       </div>
     </>
