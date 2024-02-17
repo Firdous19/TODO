@@ -6,20 +6,13 @@
     margin: 0;
 }
 
-/* body{
-    font-size: 18px;
+body{
     font-family: "Josefin Sans", sans-serif;
-    background-color: hsl(235, 21%, 11%);
-} */
+}
 
-.background::before{
-    content: "";
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url('/images/bg-desktop-dark.jpg');
-    width: 100vw;
-    height: 40vh;
-    background-size: cover;
+.borderCheckBox:checked{
+    background: url('/images/icon-check.svg'), linear-gradient(to right,hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
 }
