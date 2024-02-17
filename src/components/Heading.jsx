@@ -1,19 +1,14 @@
-import { useState } from "react";
 
 function Heading({ headerImage, setHeaderImage }) {
-  const [bgImage, setBgImage] = useState({
-    img: "/images/icon-sun.svg",
-    toggle: false,
-  });
 
   function setButton() {
     setHeaderImage((prev) => {
       if (prev.toggle === false) {
         return {
           buttonImage: "/images/icon-moon.svg",
-          inputColor: "white",
+          inputColor: "hsl(0, 0%, 98%)",
           inputTextColor:"hsl(235, 24%, 19%)",
-          color: "white",
+          color: "hsl(236, 33%, 92%)",
           image: "/images/bg-desktop-light.jpg",
           toggle: true,
         };
