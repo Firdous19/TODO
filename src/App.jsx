@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      <div style={{ backgroundColor: headerImage.color }} className="h-screen overflow-hidden">
+      <div style={{ backgroundColor: headerImage.color }} className="h-screen">
         <div
           style={{
             background: `url(${headerImage.image}) no-repeat center/cover`,
