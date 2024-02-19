@@ -5,6 +5,14 @@ function Create({ inputColor, inputTextColor }) {
   const [todo, setTodo] = useState();
   const [todoList, setTodoList] = useState([]);
 
+  //Deleting Todo items not required by the user
+  function deleteTodo(id) {
+    console.log(id);
+    setTodoList(() => {
+      return todoList.filter((todo, index) => index != id);
+    });
+  }
+
   return (
     <>
       <div className="relative mb-7">
@@ -30,12 +38,14 @@ function Create({ inputColor, inputTextColor }) {
       </div>
       {/* Todo List Starts Here */}
       <ul>
-        {todoList.map((todo, key) => (
+        {todoList.map((todo, index) => (
           <Todo
-            key={key}
+            id={index}
+            key={index}
             todoTask={todo}
             inputColor={inputColor}
             inputTextColor={inputTextColor}
+            deleteTodo={deleteTodo}
           />
         ))}
       </ul>
