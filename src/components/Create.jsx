@@ -24,6 +24,7 @@ function Create({ inputColor, inputTextColor }) {
           onKeyDown={(event) => {
             if (event.key === "Enter") {
               setTodoList([...todoList, todo]);
+              setTodo("");
             }
           }}
         />
