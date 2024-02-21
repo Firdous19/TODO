@@ -14,6 +14,8 @@ function App() {
     toggle: false,
   });
 
+  const [noOfTodos, setNoOfTodos] = useState(0);
+
   return (
     <>
       <div
@@ -32,6 +34,7 @@ function App() {
         <div className="sm:w-[520px] w-[90%]" style={{ margin: "-200px auto" }}>
           <Heading headerImage={headerImage} setHeaderImage={setHeaderImage} />
           <Create
+            setNoOfTodos={setNoOfTodos}
             inputColor={headerImage.inputColor}
             inputTextColor={headerImage.inputTextColor}
           />
@@ -40,6 +43,7 @@ function App() {
             inputTextColor={headerImage.inputTextColor}
           /> */}
           <Footer
+            noOfTodos={noOfTodos}
             inputColor={headerImage.inputColor}
             inputTextColor={headerImage.inputTextColor}
           />
