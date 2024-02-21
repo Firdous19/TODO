@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Todo from "./Todo";
 
-function Create({ inputColor, inputTextColor }) {
-  const [todo, setTodo] = useState();
+function Create({ setNoOfTodos, inputColor, inputTextColor }) {
+  const [todo, setTodo] = useState('');
   const [todoList, setTodoList] = useState([]);
 
   //Deleting Todo items not required by the user
@@ -11,6 +11,8 @@ function Create({ inputColor, inputTextColor }) {
     setTodoList(() => {
       return todoList.filter((todo, index) => index != id);
     });
+    console.log("Delete: ", todoList.length);
+    setNoOfTodos(todoList.length - 1);
   }
 
   return (
@@ -33,6 +35,8 @@ function Create({ inputColor, inputTextColor }) {
             if (event.key === "Enter") {
               setTodoList([...todoList, todo]);
               setTodo("");
+              //Displaying the no of todos in the todoList
+              setNoOfTodos(todoList.length + 1);
             }
           }}
         />
@@ -53,5 +57,4 @@ function Create({ inputColor, inputTextColor }) {
     </>
   );
 }
-
 export default Create;
