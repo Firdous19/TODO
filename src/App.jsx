@@ -25,7 +25,7 @@ function App() {
         <div
           style={{
             background: `url(${headerImage.image}) no-repeat center/cover`,
-            backgroundSize: "cover",
+            // backgroundSize: "cover",
             width: "100vw",
             height: "40vh",
           }}
