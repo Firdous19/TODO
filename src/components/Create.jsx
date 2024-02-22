@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import Todo from "./Todo";
+import Todos from "./Todos";
+
+const TodoList = createContext();
+const DeleteTodo = createContext();
 
 function Create({ setNoOfTodos, inputColor, inputTextColor }) {
-  const [todo, setTodo] = useState('');
+  const [todo, setTodo] = useState("");
   const [todoList, setTodoList] = useState([]);
 
   //Deleting Todo items not required by the user
@@ -41,8 +45,16 @@ function Create({ setNoOfTodos, inputColor, inputTextColor }) {
           }}
         />
       </div>
+
+      {/* Segregated Todo List Rendering logic using context Api */}
+      <TodoList.Provider value={todoList}>
+        <DeleteTodo.Provider value={deleteTodo}>
+          <Todos inputColor={inputColor} inputTextColor={inputTextColor} />
+        </DeleteTodo.Provider>
+      </TodoList.Provider>
+
       {/* Todo List Starts Here */}
-      <ul>
+      {/* <ul>
         {todoList.map((todo, index) => (
           <Todo
             id={index}
@@ -53,8 +65,9 @@ function Create({ setNoOfTodos, inputColor, inputTextColor }) {
             deleteTodo={deleteTodo}
           />
         ))}
-      </ul>
+      </ul> */}
     </>
   );
 }
 export default Create;
+export { TodoList, DeleteTodo };

@@ -1,4 +1,9 @@
-function Todo({ id, todoTask, inputColor, inputTextColor, deleteTodo }) {
+import { useContext } from "react";
+import { DeleteTodo } from "./Create";
+
+function Todo({ id, todoTask, inputColor, inputTextColor }) {
+  const deleteTodo = useContext(DeleteTodo);
+
   return (
     <>
       <div
