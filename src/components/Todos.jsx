@@ -3,17 +3,17 @@ import { TodoList } from "./Create";
 import { useContext } from "react";
 
 function Todos({ inputColor, inputTextColor }) {
-  const todoLists = useContext(TodoList);
+  const { todoList } = useContext(TodoList);
 
-  console.log("todolist ", todoLists);
+  // console.log("todolist ", todoLists);
   return (
     <ul>
-      {todoLists.map((todo, index) => {
+      {todoList.map((todo, index) => {
         return (
           <Todo
             id={index}
             key={index}
-            todoTask={todo}
+            todoTask={todo.task}
             inputColor={inputColor}
             inputTextColor={inputTextColor}
           />

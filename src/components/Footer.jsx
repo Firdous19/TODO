@@ -1,6 +1,23 @@
 import { useState } from "react";
 import Button from "./Button";
+import { TodoList } from "./Create";
+
 function Footer({ noOfTodos, inputColor, inputTextColor }) {
+  const { todoList, setTodoList } = TodoList;
+
+  function handleAllTodos() {
+    console.log("All");
+  }
+
+  function handleCompletedTodos() {
+    setTodoList((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+    console.log(todoList);
+  }
+
   return (
     <>
       <div
@@ -14,12 +31,12 @@ function Footer({ noOfTodos, inputColor, inputTextColor }) {
           {noOfTodos} items left
         </h4>
         <div className="w-40 flex justify-between align-middle">
-          <Button text="All" />
-          <Button text="Active" />
-          <Button text="Completed" />
+          <Button onClick={handleAllTodos}>All</Button>
+          <Button onClick={handleAllTodos}>Active</Button>
+          <Button onClick={handleCompletedTodos}>Completed</Button>
         </div>
         <div>
-          <Button text="Clear Completed" />
+          <Button>Clear Completed</Button>
         </div>
       </div>
     </>
