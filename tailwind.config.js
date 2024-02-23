@@ -9,6 +9,7 @@ export default {
       },
       screens: {
         custom: { max: "520px" },
+        custom1: { max: "478px" },
       },
     },
   },
