@@ -1,17 +1,25 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "./Button";
 import { TodoList } from "./Create";
+import Todos from "./Todos";
+import { Filter } from "../App";
 
 function Footer({ noOfTodos, inputColor, inputTextColor }) {
   const { todoList, setTodoList } = TodoList;
+  const { filter, setFilter } = useContext(Filter);
 
-  function handleAllTodos() {
-    console.log("All");
+  console.log(filter);
+
+  function handleFilter(id) {
+    setFilter(id);
   }
 
   function handleCompletedTodos() {
     return <Todos inputColor={inputColor} inputTextColor={inputTextColor} />;
   }
+  // function handleCompletedTodos() {
+  //   return <Todos inputColor={inputColor} inputTextColor={inputTextColor} />;
+  // }
 
   return (
     <>
@@ -26,9 +34,9 @@ function Footer({ noOfTodos, inputColor, inputTextColor }) {
           {noOfTodos} items left
         </h4>
         <div className="w-40 flex justify-between align-middle custom1:hidden">
-          <Button onClick={handleAllTodos}>All</Button>
-          <Button onClick={handleAllTodos}>Active</Button>
-          <Button onClick={handleCompletedTodos}>Completed</Button>
+          <Button onClick={()=>handleFilter("all")}>All</Button>
+          <Button onClick={()=>handleFilter("active")}>Active</Button>
+          <Button onClick={()=>handleFilter("completed")}>Completed</Button>
         </div>
         <div>
           <Button>Clear Completed</Button>
@@ -42,9 +50,9 @@ function Footer({ noOfTodos, inputColor, inputTextColor }) {
         className="flex justify-between align-middle p-2 pb-3 rounded-b-md hidden custom1:block"
       >
         <div className="w-40 flex justify-between align-middle mx-auto">
-          <Button onClick={handleAllTodos}>All</Button>
-          <Button onClick={handleAllTodos}>Active</Button>
-          <Button onClick={handleCompletedTodos}>Completed</Button>
+          <Button onClick={()=>handleFilter("all")}>All</Button>
+          <Button onClick={()=>handleFilter("active")}>Active</Button>
+          <Button onClick={()=>handleFilter("completed")}>Completed</Button>
         </div>
       </div>
     </>
