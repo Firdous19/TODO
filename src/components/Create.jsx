@@ -49,10 +49,12 @@ function Create({ setNoOfTodos, inputColor, inputTextColor }) {
           }}
           onKeyDown={(event) => {
             if (event.key === "Enter") {
-              setTodoList([...todoList, todo]);
-              setTodo({ ...todo, task: "" });
-              //Displaying the no of todos in the todoList
-              setNoOfTodos(todoList.length + 1);
+              if (todo.task !== "") {
+                setTodoList([...todoList, todo]);
+                setTodo({ ...todo, task: "" });
+                //Displaying the no of todos in the todoList
+                setNoOfTodos(todoList.length + 1);
+              }
             }
           }}
         />
