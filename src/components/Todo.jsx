@@ -34,12 +34,14 @@ function Todo({ id, todoTask, inputColor, inputTextColor }) {
         <div className="flex">
           <input
             type="checkbox"
+            // checked={todo.completed}
+            // checked={todo.completed}
             name=""
             id=""
             //   className="mr-3 "
             draggable="true"
             className="mt-1 mr-3 rounded-full appearance-none h-4 w-4 border border-gray-300 checked:bg-blue-600 checked:border-transparent focus:outline-none borderCheckBox cursor-pointer"
-            onClick={() => handleActiveTodos(id)}
+            onChange={() => handleActiveTodos(id)}
           />
           <li>{todoTask}</li>
         </div>

@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "./Button";
 import { TodoList } from "./Create";
+import Todos from "./Todos";
+import { Filter } from "../App";
 
 function Footer({ noOfTodos, inputColor, inputTextColor }) {
   const { todoList, setTodoList } = TodoList;
+  const { filter, setFilter } = useContext(Filter);
+  
+  console.log(filter);
 
-  function handleAllTodos() {
-    console.log("All");
+  function handleFilter(id) {
+    setFilter(id);
   }
 
   function handleCompletedTodos() {
@@ -17,6 +22,9 @@ function Footer({ noOfTodos, inputColor, inputTextColor }) {
     );
     console.log(todoList);
   }
+  // function handleCompletedTodos() {
+  //   return <Todos inputColor={inputColor} inputTextColor={inputTextColor} />;
+  // }
 
   return (
     <>
