@@ -2,9 +2,9 @@ import Heading from "./components/Heading";
 import Create from "./components/Create";
 import { createContext, useState } from "react";
 import Footer from "./components/Footer";
-import Todos from "./components/Todos";
 
 const Filter = createContext();
+const ClearCompleted = createContext();
 
 function App() {
   const [headerImage, setHeaderImage] = useState({
@@ -18,6 +18,7 @@ function App() {
 
   const [noOfTodos, setNoOfTodos] = useState(0);
   const [filter, setFilter] = useState("all");
+  const [clearCompleted, setClearCompleted] = useState(false);
 
   return (
     <>
@@ -28,31 +29,26 @@ function App() {
         <div
           style={{
             background: `url(${headerImage.image}) no-repeat center/cover`,
-            // backgroundSize: "cover",
             width: "100vw",
             height: "40vh",
           }}
         ></div>
-        {/* <img className="w-full" src={headerImage.image} alt="images" /> */}
         <div className="sm:w-[520px] w-[90%]" style={{ margin: "-200px auto" }}>
           <Heading headerImage={headerImage} setHeaderImage={setHeaderImage} />
-
-          <Filter.Provider value={{ filter, setFilter }}>
-            <Create
-              setNoOfTodos={setNoOfTodos}
-              inputColor={headerImage.inputColor}
-              inputTextColor={headerImage.inputTextColor}
-            />
-            {/* <Todos
-            inputColor={headerImage.inputColor}
-            inputTextColor={headerImage.inputTextColor}
-          /> */}
-            <Footer
-              noOfTodos={noOfTodos}
-              inputColor={headerImage.inputColor}
-              inputTextColor={headerImage.inputTextColor}
-            />
-          </Filter.Provider>
+          <ClearCompleted.Provider value={{ clearCompleted, setClearCompleted }}>
+            <Filter.Provider value={{ filter, setFilter }}>
+              <Create
+                setNoOfTodos={setNoOfTodos}
+                inputColor={headerImage.inputColor}
+                inputTextColor={headerImage.inputTextColor}
+              />
+              <Footer
+                noOfTodos={noOfTodos}
+                inputColor={headerImage.inputColor}
+                inputTextColor={headerImage.inputTextColor}
+              />
+            </Filter.Provider>
+          </ClearCompleted.Provider>
         </div>
       </div>
     </>
@@ -60,4 +56,4 @@ function App() {
 }
 
 export default App;
-export { Filter };
+export { Filter, ClearCompleted };

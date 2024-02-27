@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { DeleteTodo } from "./Create";
 import { TodoList } from "./Create";
 
-function Todo({ id, todoTask, inputColor, inputTextColor }) {
+function Todo({ todo, inputColor, inputTextColor }) {
   const deleteTodo = useContext(DeleteTodo);
   const { todoList, setTodoList } = useContext(TodoList);
   const [activeTodo, setActiveTodo] = useState([]);
@@ -18,13 +18,13 @@ function Todo({ id, todoTask, inputColor, inputTextColor }) {
       })
     );
   }
-  console.log(todoList);
+  console.log("TodoList", todoList);
   // console.log("Active Todos: ", activeTodo);
 
   return (
     <>
       <div
-        key={id}
+        // key={id}
         style={{
           backgroundColor: inputColor,
           color: inputTextColor,
@@ -35,20 +35,24 @@ function Todo({ id, todoTask, inputColor, inputTextColor }) {
           <input
             type="checkbox"
             // checked={todo.completed}
-            // checked={todo.completed}
+            checked={todo.completed}
             name=""
             id=""
             //   className="mr-3 "
             draggable="true"
             className="mt-1 mr-3 rounded-full appearance-none h-4 w-4 border border-gray-300 checked:bg-blue-600 checked:border-transparent focus:outline-none borderCheckBox cursor-pointer"
-            onChange={() => handleActiveTodos(id)}
+            onChange={() => handleActiveTodos(todo.id)}
           />
-          <li>{todoTask}</li>
+          <li
+            style={{ textDecoration: todo.completed ? "line-through" : "none" }}
+          >
+            {todo.task}
+          </li>
         </div>
         <button
           className="opacity-0 group-hover:opacity-100"
           onClick={() => {
-            deleteTodo(id);
+            deleteTodo(todo.id);
           }}
         >
           <img className="w-4" src="/images/icon-cross.svg" alt="cross" />

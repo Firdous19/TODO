@@ -1,6 +1,7 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import Todo from "./Todo";
 import Todos from "./Todos";
+import { ClearCompleted } from "../App";
 
 const TodoList = createContext();
 const DeleteTodo = createContext();
@@ -8,10 +9,23 @@ const DeleteTodo = createContext();
 function Create({ setNoOfTodos, inputColor, inputTextColor }) {
   const [todo, setTodo] = useState({
     id: 0,
-    task: "",
-    completed: false,
+    task: "",//Hello
+    completed: false,//true
   });
   const [todoList, setTodoList] = useState([]);
+  const { clearCompleted, setClearCompleted } = useContext(ClearCompleted);
+
+  console.log("created->Clear completed", clearCompleted);
+
+  useEffect(() => {
+    setTodoList((prev) => {
+      return prev.filter((todo) => !todo.completed);
+    });
+
+    setNoOfTodos(todoList.length);
+  }, [clearCompleted]);
+
+  // console.log(clearCompleted);
 
   // console.log(todoList);
 
