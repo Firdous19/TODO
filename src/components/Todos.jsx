@@ -14,9 +14,9 @@ function Todos({ inputColor, inputTextColor }) {
           console.log("Todo: ",todo);
           return (
             <Todo
-              id={index}
+              // id={index}
               key={index}
-              todoTask={todo.task}
+              todo={todo}
               inputColor={inputColor}
               inputTextColor={inputTextColor}
             />
@@ -31,9 +31,9 @@ function Todos({ inputColor, inputTextColor }) {
           if (!todo.completed) {
             return (
               <Todo
-                id={index}
+                // id={index}
                 key={index}
-                todoTask={todo.task}
+                todo={todo}
                 inputColor={inputColor}
                 inputTextColor={inputTextColor}
               />
@@ -49,9 +49,9 @@ function Todos({ inputColor, inputTextColor }) {
           if (todo.completed) {
             return (
               <Todo
-                id={index}
+                // id={index}
                 key={index}
-                todoTask={todo.task}
+                todo={todo}
                 inputColor={inputColor}
                 inputTextColor={inputTextColor}
               />
