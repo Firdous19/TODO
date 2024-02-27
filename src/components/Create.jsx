@@ -24,7 +24,9 @@ function Create({ setNoOfTodos, inputColor, inputTextColor }) {
 
     setNoOfTodos(todoList.length);
   }, [clearCompleted]);
-
+  useEffect(() => {
+    setNoOfTodos(todoList.length);
+  }, [todoList]);
   // console.log(clearCompleted);
 
   // console.log(todoList);
