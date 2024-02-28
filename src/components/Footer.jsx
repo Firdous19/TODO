@@ -10,20 +10,18 @@ function Footer({ noOfTodos, inputColor, inputTextColor }) {
   const { filter, setFilter } = useContext(Filter);
   const { clearCompleted, setClearCompleted } = useContext(ClearCompleted);
 
-  console.log(filter);
+  // console.log(filter);
 
   function handleFilter(id) {
     setFilter(id);
   }
 
   function clearCompletedTodos() {
-    console.log("Clear Todos");
+    // console.log("Clear Todos");
     setClearCompleted(prev=>!prev);
     // console.log(clearCompleted);
   }
-  function handleCompletedTodos() {
-    return <Todos inputColor={inputColor} inputTextColor={inputTextColor} />;
-  }
+  
   // function handleCompletedTodos() {
   //   return <Todos inputColor={inputColor} inputTextColor={inputTextColor} />;
   // }

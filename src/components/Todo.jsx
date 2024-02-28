@@ -10,7 +10,7 @@ function Todo({ todo, inputColor, inputTextColor }) {
   // console.log("TodoList: ", todoList);
 
   function handleActiveTodos(id) {
-    console.log("id: ", id);
+    // console.log("id: ", id);
     setTodoList((prevTodos) =>
       prevTodos.map((todo) => {
         // console.log("Todo item: ", todo);
@@ -18,7 +18,7 @@ function Todo({ todo, inputColor, inputTextColor }) {
       })
     );
   }
-  console.log("TodoList", todoList);
+  // console.log("TodoList", todoList);
   // console.log("Active Todos: ", activeTodo);
 
   return (
@@ -34,12 +34,7 @@ function Todo({ todo, inputColor, inputTextColor }) {
         <div className="flex">
           <input
             type="checkbox"
-            // checked={todo.completed}
             checked={todo.completed}
-            name=""
-            id=""
-            //   className="mr-3 "
-            draggable="true"
             className="mt-1 mr-3 rounded-full appearance-none h-4 w-4 border border-gray-300 checked:bg-blue-600 checked:border-transparent focus:outline-none borderCheckBox cursor-pointer"
             onChange={() => handleActiveTodos(todo.id)}
           />
@@ -52,6 +47,7 @@ function Todo({ todo, inputColor, inputTextColor }) {
         <button
           className="opacity-0 group-hover:opacity-100"
           onClick={() => {
+            // console.log("Todo id from button ->", todo.id);
             deleteTodo(todo.id);
           }}
         >

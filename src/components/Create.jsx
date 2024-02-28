@@ -9,20 +9,20 @@ const DeleteTodo = createContext();
 function Create({ setNoOfTodos, inputColor, inputTextColor }) {
   const [todo, setTodo] = useState({
     id: 0,
-    task: "",//Hello
-    completed: false,//true
+    task: "", //Hello
+    completed: false, //true
   });
   const [todoList, setTodoList] = useState([]);
   const { clearCompleted, setClearCompleted } = useContext(ClearCompleted);
 
-  console.log("created->Clear completed", clearCompleted);
+  // console.log("created->Clear completed", clearCompleted);
 
   useEffect(() => {
     setTodoList((prev) => {
       return prev.filter((todo) => !todo.completed);
     });
-
   }, [clearCompleted]);
+
   useEffect(() => {
     setNoOfTodos(todoList.length);
   }, [todoList]);
@@ -32,12 +32,12 @@ function Create({ setNoOfTodos, inputColor, inputTextColor }) {
 
   //Deleting Todo items not required by the user
   function deleteTodo(id) {
-    console.log(id);
+    // console.log("Delete->", id);
     setTodoList(() => {
-      return todoList.filter((todo, index) => index != id);
+      return todoList.filter((todo, index) => todo.id != id);
     });
-    console.log("Delete: ", todoList.length);
-    setNoOfTodos(todoList.length - 1);
+    // console.log("Delete: ", todoList.length);
+    // setNoOfTodos(todoList.length - 1);
   }
 
   return (

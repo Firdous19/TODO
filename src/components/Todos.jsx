@@ -11,7 +11,7 @@ function Todos({ inputColor, inputTextColor }) {
     return (
       <ul>
         {todoList.map((todo, index) => {
-          console.log("Todo: ",todo);
+          // console.log("Todo: ",todo);
           return (
             <Todo
               // id={index}
