@@ -1,17 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*{
-    padding: 0;
-    margin: 0;
-}
 
-body{
-    font-family: "Josefin Sans", sans-serif;
-}
+/* .button:active {
+    color: white;
+} */
 
-.borderCheckBox:checked{
-    background: url('/images/icon-check.svg'), linear-gradient(to right,hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
+.borderCheckBox:checked {
+    background: url('/images/icon-check.svg'), linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
     background-repeat: no-repeat;
     background-position: center;
     border: none;
