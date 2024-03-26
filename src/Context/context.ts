@@ -22,11 +22,11 @@ export const ThemeContext = createContext({
     headerImage: {} as HeaderImageProps,
     todoList: [] as TodoList[],
     clearCompleted: () => { },
-    handleFilter: (filter: string) => { },
+    handleFilter: () => { },
     toggleTheme: () => { },
-    addTodos: (todo: TodoList) => { },
-    deleteTodo: (id: number | string) => { },
-    handleActiveTodos: (id: number | string) => { }
+    addTodos: () => { },
+    deleteTodo: () => { },
+    handleActiveTodos: () => { }
 })
 
 export const ThemeContextProvider = ThemeContext.Provider;
